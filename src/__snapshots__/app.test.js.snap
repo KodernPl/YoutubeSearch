@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<app__AppWrapper>
+  <SearchBar
+    onSearchTermChange={[Function]}
+  />
+  <app__Main>
+    <app__VideoBox>
+      <VideoDetail
+        video={null}
+      />
+    </app__VideoBox>
+    <VideoList
+      onVideoSelect={[Function]}
+      videos={Array []}
+    />
+  </app__Main>
+</app__AppWrapper>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<video-list-item__VideoListItemWrapper
+  onClick={[Function]}
+>
+  <video-list-item__Video>
+    <img
+      alt="TEST"
+      src="TEST"
+    />
+  </video-list-item__Video>
+  <video-list-item__Paragraph />
+</video-list-item__VideoListItemWrapper>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Fragment>
+  <video-detail__Video>
+    <iframe
+      src="https://www.youtube.com/embed/ID"
+      title="video"
+    />
+  </video-detail__Video>
+  <video-detail__Details>
+    <video-detail__Title>
+      TITLE
+    </video-detail__Title>
+    <video-detail__Paragraph>
+      DESC
+    </video-detail__Paragraph>
+    <video-detail__Paragraph>
+      Published at: 
+      PUB
+    </video-detail__Paragraph>
+  </video-detail__Details>
+  <video-detail__Line />
+</Fragment>
+`;

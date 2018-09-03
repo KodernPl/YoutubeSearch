@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<video-list__VideoListlWrapper>
+  <VideoListItem
+    key="1"
+    onVideoSelect={[MockFunction]}
+    video={
+      Object {
+        "etag": "1",
+      }
+    }
+  />
+  <VideoListItem
+    key="2"
+    onVideoSelect={[MockFunction]}
+    video={
+      Object {
+        "etag": "2",
+      }
+    }
+  />
+</video-list__VideoListlWrapper>
+`;

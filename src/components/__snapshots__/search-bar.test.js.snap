@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<SearchBar
+  onSearchTermChange={[MockFunction]}
+>
+  <search-bar__SearchBarWrapper>
+    <div
+      className="search-bar__SearchBarWrapper-sc-1op3id8-0 fbColO"
+    >
+      <search-bar__Input
+        onChange={[Function]}
+        placeholder="Enter Search"
+        value=""
+      >
+        <input
+          className="search-bar__Input-sc-1op3id8-1 ksdLow"
+          onChange={[Function]}
+          placeholder="Enter Search"
+          value=""
+        />
+      </search-bar__Input>
+    </div>
+  </search-bar__SearchBarWrapper>
+</SearchBar>
+`;
