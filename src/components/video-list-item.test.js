@@ -39,5 +39,5 @@ test('should call onVideoSelect if clicked', () => {
   const component = renderComponent();
   component.simulate('click', {});
 
-  expect(onVideoSelectMock).toBeCalledWith(mockVideo);
+  expect(onVideoSelectMock).toHaveBeenCalledWith(mockVideo);
 });

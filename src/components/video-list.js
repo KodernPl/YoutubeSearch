@@ -48,4 +48,3 @@ VideoList.propTypes = propTypes;
 VideoList.defaultProps = defaultProps;
 
 export default VideoList;
-

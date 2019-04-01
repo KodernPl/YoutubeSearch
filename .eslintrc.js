@@ -14,8 +14,8 @@ module.exports = {
     "react/jsx-filename-extension": "off",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off"
-},
+  },
   "env": {
-      "jest/globals": true
+    "jest/globals": true
   },
 };

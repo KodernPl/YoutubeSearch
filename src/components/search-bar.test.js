@@ -28,5 +28,5 @@ test('should call onSearchTermChange when text is entered', () => {
   const component = renderComponent();
   component.find('input').simulate('change', { target: { value: 'TEST' } });
 
-  expect(onSearchTermChangeMock).toBeCalledWith('TEST');
+  expect(onSearchTermChangeMock).toHaveBeenCalledWith('TEST');
 });

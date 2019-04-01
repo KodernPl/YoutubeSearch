@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
+import debounce from 'lodash.debounce';
 import styled from 'styled-components';
 
 import YoutubeSearch from './utils/youtube-search';
@@ -56,6 +56,12 @@ class App extends Component {
     this.videoSearch('Metallica');
   }
 
+  apiKeyExists = () => !!Config.YT_API_KEY.length;
+
+  selectVideo = (selectedVideo) => {
+    this.setState({ selectedVideo });
+  }
+
   videoSearch(term) {
     YoutubeSearch({ key: Config.YT_API_KEY, term }, (videos) => {
       this.setState({
@@ -65,32 +71,27 @@ class App extends Component {
     });
   }
 
-  apiKeyExists = () => !!Config.YT_API_KEY.length;
-
-  selectVideo = (selectedVideo) => {
-    this.setState({ selectedVideo });
-  }
-
   render() {
-    const videoSearch = _.debounce((term) => { this.videoSearch(term); }, 300);
+    const videoSearch = debounce((term) => { this.videoSearch(term); }, 300);
 
     return (
       <AppWrapper>
-        {this.apiKeyExists() ?
-          <React.Fragment>
-            <SearchBar onSearchTermChange={videoSearch} />
-            <Main>
-              <VideoBox>
-                <VideoDetail video={this.state.selectedVideo} />
-              </VideoBox>
-              <VideoList
-                onVideoSelect={this.selectVideo}
-                videos={this.state.videos}
-              />
-            </Main>
-          </React.Fragment>
-          :
-          <div>YouTube API Key Missing</div>
+        {this.apiKeyExists()
+          ? (
+            <React.Fragment>
+              <SearchBar onSearchTermChange={videoSearch} />
+              <Main>
+                <VideoBox>
+                  <VideoDetail video={this.state.selectedVideo} />
+                </VideoBox>
+                <VideoList
+                  onVideoSelect={this.selectVideo}
+                  videos={this.state.videos}
+                />
+              </Main>
+            </React.Fragment>
+          )
+          : <div>YouTube API Key Missing</div>
         }
       </AppWrapper>
     );

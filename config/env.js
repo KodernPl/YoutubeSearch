@@ -8,7 +8,6 @@ const paths = require('./paths');
 delete require.cache[require.resolve('./paths')];
 
 const { NODE_ENV } = process.env;
-
 if (!NODE_ENV) {
   throw new Error('The NODE_ENV environment variable is required but was not specified.');
 }
@@ -31,7 +30,7 @@ const dotenvFiles = [
 // https://github.com/motdotla/dotenv-expand
 dotenvFiles.forEach((dotenvFile) => {
   if (fs.existsSync(dotenvFile)) {
-    require('dotenv-expand')(require('dotenv').config({ // eslint-disable-line global-require
+    require('dotenv-expand')(require('dotenv').config({
       path: dotenvFile,
     }));
   }
@@ -39,12 +38,12 @@ dotenvFiles.forEach((dotenvFile) => {
 
 // We support resolving modules according to `NODE_PATH`.
 // This lets you use absolute paths in imports inside large monorepos:
-// https://github.com/facebookincubator/create-react-app/issues/253.
+// https://github.com/facebook/create-react-app/issues/253.
 // It works similar to `NODE_PATH` in Node itself:
 // https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders
 // Note that unlike in Node, only *relative* paths from `NODE_PATH` are honored.
 // Otherwise, we risk importing Node.js core modules into an app instead of Webpack shims.
-// https://github.com/facebookincubator/create-react-app/issues/1023#issuecomment-265344421
+// https://github.com/facebook/create-react-app/issues/1023#issuecomment-265344421
 // We also resolve them to make sure all tools using them work consistently.
 const appDirectory = fs.realpathSync(process.cwd());
 process.env.NODE_PATH = (process.env.NODE_PATH || '')
@@ -62,7 +61,7 @@ function getClientEnvironment(publicUrl) {
     .filter(key => REACT_APP.test(key))
     .reduce(
       (env, key) => {
-        env[key] = process.env[key]; // eslint-disable-line no-param-reassign
+        env[key] = process.env[key];
         return env;
       },
       {
@@ -79,7 +78,7 @@ function getClientEnvironment(publicUrl) {
   // Stringify all values so we can feed into Webpack DefinePlugin
   const stringified = {
     'process.env': Object.keys(raw).reduce((env, key) => {
-      env[key] = JSON.stringify(raw[key]); // eslint-disable-line no-param-reassign
+      env[key] = JSON.stringify(raw[key]);
       return env;
     }, {}),
   };
