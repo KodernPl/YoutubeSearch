@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const URL = 'https://www.googleapis.com/youtube/v3/search';
 
-const YoutubeSearch = (options, callback) => {
+const YoutubeSearch = async (options) => {
   if (!options.key) {
-    throw new Error('Youtube Search expected key, received undefined');
+    throw new Error('API_KEY needs to be provided');
   }
 
   const params = {
@@ -14,13 +14,13 @@ const YoutubeSearch = (options, callback) => {
     type: 'video',
   };
 
-  axios.get(URL, { params })
-    .then((response) => {
-      if (callback) { callback(response.data.items); }
-    })
-    .catch((error) => {
-      console.error(error); // eslint-disable-line no-console
-    });
+  try {
+    const res = await axios.get(URL, { params });
+    return res.data.items;
+  } catch (error) {
+    console.error(error); // eslint-disable-line no-console
+    return [];
+  }
 };
 
 export default YoutubeSearch;

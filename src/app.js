@@ -62,12 +62,11 @@ class App extends Component {
     this.setState({ selectedVideo });
   }
 
-  videoSearch(term) {
-    YoutubeSearch({ key: Config.YT_API_KEY, term }, (videos) => {
-      this.setState({
-        videos,
-        selectedVideo: videos[0],
-      });
+  async videoSearch(term) {
+    const videos = await YoutubeSearch({ key: Config.YT_API_KEY, term });
+    this.setState({
+      videos,
+      selectedVideo: videos[0],
     });
   }
 
